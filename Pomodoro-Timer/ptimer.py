@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 
 WORKTIME = 25*60
@@ -13,7 +14,9 @@ class Pomodoro:
         self.root.geometry("450x350")
         self.root.config(bg=WORKCOLOR)
 
-        self.icon=tk.PhotoImage(file="clock.png")
+        current_dir = os.path.dirname(__file__)
+        icon_path = os.path.join(current_dir, "clock.png")
+        self.icon=tk.PhotoImage(file=icon_path)
         self.root.iconphoto(False,self.icon)
 
         self.timeLeft=WORKTIME
